@@ -9,9 +9,12 @@ import { useContext } from "react";
 import { TokensContext } from "../hooks/useTokens";
 import FeedbackForm from "./modals/feedback";
 import RatingForm from "./modals/rating";
+import { useNavigate } from "react-router-dom";
+
 
 const ParkingPlaceDetails = ({ spot }) => {
   const { accessToken } = useContext(TokensContext);
+  const navigate = useNavigate()
 
   return (
     <div className="w-full overflow-hidden space-y-6">
@@ -27,11 +30,22 @@ const ParkingPlaceDetails = ({ spot }) => {
         </div>
       )}
 
+      <div className="image-map  grid sm:grid-cols-[1fr_1fr] gap-5 ">
       {spot.imageUrls.length > 0 ? (
-        <img className="w-full h-96 object-cover object-center mb-1" src={spot.imageUrls[0]} alt={spot.name} />
+        <img className="w-half grid h-96 object-cover object-center mb-1 rounded-md shadow-md"  src={spot.imageUrls[0]} alt={spot.name} />
+        
       ) : (
-        <img className="w-full h-96 object-cover object-center mb-1" src={mock} alt={spot.name} />
+        <img className="w-half h-96 object-cover object-center mb-1" src={mock} alt={spot.name} />
       )}
+
+<img className="w-half grid h-96 object-cover object-center mb-1 rounded-md shadow-md" src={spot.imageUrls[0]} alt={spot.name} />
+
+
+
+      </div>
+
+
+
 
       <div className="grid sm:grid-cols-2 gap-10">
         <div className="">
@@ -70,13 +84,13 @@ const ParkingPlaceDetails = ({ spot }) => {
 
 
 
-      <div className="feedback rating flex ">
+      <div className="feedback rating grid sm:grid-cols-[1fr_1fr] gap-8 overflow-hidden">
         <RatingForm/>
         <FeedbackForm/>
       </div>
 
       {!accessToken ? (
-        <div className="flex items-center gap-4 px-4 py-2 bg-yellow-600">
+        <div className="flex items-center gap-4 px-4 py-2 bg-yellow-600 cursor-pointer" onClick={()=> navigate('/signin')  }> 
           <FaHammer className="h-8 w-8" />
           <p className="text-xl text-white rounded-sm">Please sign in first</p>
         </div>

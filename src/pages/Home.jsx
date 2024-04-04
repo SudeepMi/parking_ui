@@ -13,9 +13,10 @@ const Home = () => {
           <p>Opps Youre not logged in</p>
         </div>
       )}
-      <div className="min-h-[80vh] flex flex-col justify-center items-center">
-        <div className="text-black text-4xl mb-6 animate-fade-in-up">Welcome to Parking Reservation</div>
-        <p className="text-black text-lg mb-4 animate-fade-in-up-delay">
+      <div className="min-h-[80vh] flex flex-col justify-center items-center ">
+        <div className="text-black text-4xl mb-6 animate-fade-in-up flex ">Welcome to
+        <h2 className="text-green-700 bold ml-2 font-semibold font-serif"> "Smart</h2> <h2 className="ml-2 font-semibold font-serif">Parking"</h2></div>
+        <p className="text-green-900 text-lg mb-4 animate-fade-in-up-delay">
           Reserve your parking spot and have a hassle-free experience.
         </p>
 

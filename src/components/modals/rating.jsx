@@ -11,7 +11,7 @@ function RatingForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 px-4 py-6 bg-white shadow-md rounded-md">
+    <div className=" w-half mt-8  px-4 py-6 bg-white shadow-md rounded-md">
       <h2 className="text-2xl font-bold mb-4">Rate This Parking Spot</h2>
       <div className="flex items-center mb-4">
         <span className="text-lg font-semibold mr-4">Your Rating:</span>

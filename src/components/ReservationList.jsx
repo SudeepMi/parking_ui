@@ -12,11 +12,11 @@ function ReservationsList({ reservations }) {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-4">Reservations</h2>
-      <table className="min-w-full divide-y divide-gray-200 border-separate">
-        <thead>
+      <h2 className="text-2xl font-semibold mb-3 mt-8  underline underline-offset-4 ">Reservations:</h2>
+      <table className="min-w-full divide-y divide-gray-200 border-separate shadow-md rounded-md ">
+        <thead className="">
           <tr>
-            <th className="px-6 py-3 bg-zinc-900 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 bg-zinc-900 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider rounded-l-md">
               Vehicle
             </th>
             <th className="px-6 py-3 bg-zinc-900 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider">
@@ -31,7 +31,7 @@ function ReservationsList({ reservations }) {
             <th className="px-6 py-3 bg-zinc-900 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider">
               Total Cost
             </th>
-            <th className="px-6 py-3 bg-zinc-900 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 bg-zinc-900 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider rounded-r-md">
               Actions
             </th>
           </tr>
@@ -48,7 +48,7 @@ function ReservationsList({ reservations }) {
               </td>
               <td className="px-6 whitespace-no-wrap">{moment(reservation.endTime).format("D MMMM , h:mm A")}</td>
               <td className="px-6 whitespace-no-wrap">{reservation.status}</td>
-              <td className="px-6 whitespace-no-wrap">${reservation.totalCost.toFixed(2)}</td>
+              <td className="px-6 whitespace-no-wrap text-green-700 font-mono flex"><h4 className="text-black mr-1">Rs.</h4>{reservation.totalCost.toFixed(2)}</td>
               <td className="px-6 whitespace-no-wrap">
                 <DeleteReservationModal id={reservation._id} />
               </td>
