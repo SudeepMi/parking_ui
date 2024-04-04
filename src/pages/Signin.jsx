@@ -42,8 +42,8 @@ const Signin = () => {
   };
 
   return (
-    <section className="flex items-center justify-center my-20 w-full bg-zinc-900 text-white">
-      <form className="flex flex-col w-11/12 sm:w-1/3 space-y-4" onSubmit={handleSubmit}>
+    <section className=" w-full flex items-center justify-center my-20  text-black ">
+      <form className="flex flex-col  space-y-4 shadow-md p-6" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -51,7 +51,7 @@ const Signin = () => {
           name="email"
           id="email"
           required
-          className="border bg-transparent py-2 rounded-md px-2"
+          className="border bg-transparent py-2 rounded-md px-2 "
           value={formData.email}
           onChange={handleChange}
         />
@@ -70,8 +70,8 @@ const Signin = () => {
 
         {error && <p className="text-red-500 ml-auto">{error.response.data.message}</p>}
 
-        <button disabled={isLoading} type="submit" className="px-2 py-2 bg-purple-500 hover:bg-purple-700">
-          Signin
+        <button disabled={isLoading} type="submit" className=" text-white px-2 py-2 bg-purple-500 hover:bg-purple-700 rounded-md">
+          Sign in
         </button>
 
         <div className="flex items-center justify-between">
@@ -81,7 +81,7 @@ const Signin = () => {
               <span className="ml-1 text-blue-500 underline">Signup</span>
             </Link>
           </p>
-          <p className="text-blue-500 cursor-pointer transition-colors hover:underline">Forgot Password</p>
+          <p className="text-blue-500 cursor-pointer transition-colors hover:underline ml-2">Forgot Password</p>
         </div>
       </form>
     </section>

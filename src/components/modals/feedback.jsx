@@ -22,7 +22,7 @@ function FeedbackForm() {
     };
   
     return (
-      <div className="max-w  mx-auto mt-8 px-6 py-6  bg-white shadow-md rounded-md">
+      <div className=" w-half  mt-8 px-6 py-6  bg-white shadow-md rounded-md">
         <h2 className="text-2xl font-bold mb-4">Place your Feedback</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -37,7 +37,7 @@ function FeedbackForm() {
             <label className="block text-sm font-semibold mb-1" htmlFor="feedback">Your Feedback:</label>
             <textarea id="feedback" name="feedback" value={formData.feedback} onChange={handleChange} className="w-full px-3 py-2 border rounded-md resize-none" placeholder="Enter your feedback"></textarea>
           </div>
-          <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-600">Submit</button>
+          <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-600" >Submit</button>
         </form>
       </div>
     );

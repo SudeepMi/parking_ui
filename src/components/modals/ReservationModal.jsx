@@ -115,7 +115,7 @@ const ReservationModal = ({ id }) => {
 
   if (vehicles.length < 1) {
     return (
-      <div className="flex items-center gap-4 px-4 py-2 bg-yellow-600">
+      <div className="flex items-center gap-4 px-4 py-2 bg-yellow-600 cursor-pointer" onClick={() => navigate("/vehicles")} >
         <FaHammer className="h-8 w-8" />
         <p className="text-xl text-white rounded-sm">Please register a vehicle first</p>
       </div>
