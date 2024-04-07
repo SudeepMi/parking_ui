@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import { TokensContext } from "../hooks/useTokens";
 import { useContext } from "react";
+import App from "./Map/park";
+
 
 const Navbar = () => {
   const { accessToken, deleteTokens } = useContext(TokensContext);
@@ -35,11 +37,14 @@ const Navbar = () => {
                 <button onClick={() => deleteTokens()} className="bg-purple-500 hover:bg-purple-700 px-4 py-1 text-white rounded-md">
                   Sign out
                 </button>
+                
+              <App/>
               </>
             ) : (
               <Link to="/signin">
                 <li className=" text-white transition px-4 py-1 bg-purple-500 hover:bg-purple-700 rounded-md">Sign in</li>
               </Link>
+             
             )}
           </ul>
         </div>
