@@ -10,6 +10,7 @@ import { TokensContext } from "../hooks/useTokens";
 import FeedbackForm from "./modals/feedback";
 import RatingForm from "./modals/rating";
 import { useNavigate } from "react-router-dom";
+import ParkingMap from "./Map/parkingMap";
 
 
 const ParkingPlaceDetails = ({ spot }) => {
@@ -30,7 +31,7 @@ const ParkingPlaceDetails = ({ spot }) => {
         </div>
       )}
 
-      <div className="image-map  grid sm:grid-cols-[1fr_1fr] gap-5 ">
+      <div className="image-map  grid sm:grid-cols-[1fr_1fr] gap-2 ">
       {spot.imageUrls.length > 0 ? (
         <img className="w-half grid h-96 object-cover object-center mb-1 rounded-md shadow-md"  src={spot.imageUrls[0]} alt={spot.name} />
         
@@ -38,8 +39,8 @@ const ParkingPlaceDetails = ({ spot }) => {
         <img className="w-half h-96 object-cover object-center mb-1" src={mock} alt={spot.name} />
       )}
 
-<img className="w-half grid h-96 object-cover object-center mb-1 rounded-md shadow-md" src={spot.imageUrls[0]} alt={spot.name} />
 
+<ParkingMap className="h-96 w-half rounded-md" spot={spot.coordinates} id={spot._id} name={spot.name} />
 
 
       </div>
