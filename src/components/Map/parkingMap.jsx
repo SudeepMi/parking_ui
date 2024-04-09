@@ -6,7 +6,7 @@ const ParkingMap = ({spot, name,id}) => {
  
 
   return (
-    <div className='h-96 w-half overflow-hidden object-contain'>
+    <div className='h-96 w-half overflow-hidden object-contain z-10'>
       
       <MapContainer center={spot[0].split(",")} zoom={15}>
         <TileLayer
