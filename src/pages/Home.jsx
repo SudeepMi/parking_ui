@@ -1,10 +1,26 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaCashRegister } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { TokensContext } from "../hooks/useTokens";
+import { privateAxios } from "../api";
+import ParkingSpotCard from "../components/ParkingSpotCard";
 
 const Home = () => {
   const { accessToken } = useContext(TokensContext);
+  const [spots, setSpots] = useState([])
+
+  const getCoords = ()=>{
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(s);
+    }
+  }
+  const s =(d)=>{
+    const {latitude, longitude} = d.coords;
+    privateAxios.get("/parkings/knn?cords="+latitude+","+longitude).then(res=>setSpots(res.data))
+  }
+  useEffect(()=>{
+    getCoords()
+  },[])
   return (
     <div>
       {!accessToken && (
@@ -27,6 +43,11 @@ const Home = () => {
             </span>
           </button>
         </Link>
+      </div>
+      <h2>Nearest Parking Spots</h2>
+      <div className="flex gap-1 justify-center">
+      {spots ? spots.map((s) => <ParkingSpotCard key={s._id} spot={s} />) : <p>No spots available.</p>}
+        
       </div>
     </div>
   );

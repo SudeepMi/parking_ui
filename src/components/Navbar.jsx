@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { TokensContext } from "../hooks/useTokens";
 import { useContext } from "react";
-import App from "./Map/park";
+
 
 
 const Navbar = () => {
@@ -38,7 +38,7 @@ const Navbar = () => {
                   Sign out
                 </button>
                 
-              <App/>
+            
               </>
             ) : (
               <Link to="/signin">
