@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const publicAxios = axios.create({
-  baseURL: "https://parking-api-otv3.onrender.com",
+  baseURL: "http://localhost:4000",
 });
 
 const privateAxios = axios.create({

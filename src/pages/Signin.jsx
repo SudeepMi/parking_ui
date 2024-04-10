@@ -68,7 +68,7 @@ const Signin = () => {
           onChange={handleChange}
         />
 
-        {error && <p className="text-red-500 ml-auto">{error.response.data.message}</p>}
+        {/* {error && <p className="text-red-500 ml-auto">{error.response.data.message}</p>} */}
 
         <button disabled={isLoading} type="submit" className=" text-white px-2 py-2 bg-purple-500 hover:bg-purple-700 rounded-md">
           Sign in
