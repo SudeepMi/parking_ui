@@ -83,13 +83,6 @@ const ParkingPlaceDetails = ({ spot }) => {
         </div>
       </div>
 
-
-
-      <div className="feedback rating grid sm:grid-cols-[1fr_1fr] gap-8 overflow-hidden">
-        <RatingForm/>
-        <FeedbackForm/>
-      </div>
-
       {!accessToken ? (
         <div className="flex items-center gap-4 px-4 py-2 bg-yellow-600 cursor-pointer" onClick={()=> navigate('/signin')  }> 
           <FaHammer className="h-8 w-8" />
@@ -98,6 +91,13 @@ const ParkingPlaceDetails = ({ spot }) => {
       ) : (
         <>{spot.available && <ReservationModal id={spot._id} />}</>
       )}
+
+
+      <div className="feedback rating grid sm:grid-cols-[1fr_1fr] gap-8 overflow-hidden">
+        <RatingForm/>
+        <FeedbackForm/>
+      </div>
+
     </div>
   );
 };
