@@ -5,7 +5,7 @@ const publicAxios = axios.create({
 });
 
 const privateAxios = axios.create({
-  baseURL: "https://parking-api-otv3.onrender.com",
+  baseURL: "http://localhost:4000",
 });
 
 privateAxios.interceptors.request.use((config) => {
