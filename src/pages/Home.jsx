@@ -46,7 +46,8 @@ const Home = () => {
       </div>
       <h2>Nearest Parking Spots</h2>
       <div className="flex gap-1 justify-center">
-      {spots ? spots.map((s) => <ParkingSpotCard key={s._id} spot={s} />) : <p>No spots available.</p>}
+        {console.log(spots)}
+      {spots ? spots.map((s) => s && <ParkingSpotCard key={s._id} spot={s} />) : <p>No spots available.</p>}
         
       </div>
     </div>
