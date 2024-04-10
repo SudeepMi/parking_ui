@@ -8,7 +8,7 @@ const ParkingMap = ({spot, name,id}) => {
   return (
     <div>
       
-      <MapContainer center={spot[0].split(",")} zoom={15} className="w-half h-96">
+      {spot[0] && <MapContainer center={spot[0].split(",")} zoom={15} className="w-half h-96">
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -18,7 +18,7 @@ const ParkingMap = ({spot, name,id}) => {
             <Popup content={"<p>sadas</p>"} children={<p>asdad</p>} />
           </Marker>
    
-      </MapContainer>
+      </MapContainer>}
     </div>
   );
 };
