@@ -10,8 +10,8 @@ const Navbar = () => {
   const isLoggedIn = accessToken ? true : false;
 
   return (
-    <header className="fixed top-0 w-full backdrop-blur-sm  border-b h-16 bg-gray-200 shadow-md ">
-      <nav className="w-11/12 mx-auto h-full flex items-center ">
+    <header className="fixed top-0 w-full backdrop-blur-sm  border-b h-16 bg-gray-200 shadow-md z-50">
+      <nav className="w-11/12 mx-auto h-full flex items-center z-50">
         <div className="w-full flex items-center justify-between">
           <div className="hover:underline text-lg font-semibold">
             <Link to="/"><img  className="w-full h-10 object-cover object-center mb-1"  src="smartLogo.png" alt="logo" /></Link>

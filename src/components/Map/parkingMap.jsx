@@ -6,9 +6,10 @@ const ParkingMap = ({spot, name,id}) => {
  
 
   return (
-    <div>
+    <div className='h-96 w-half overflow-hidden object-contain z-10'>
       
       {spot[0] && <MapContainer center={spot[0].split(",")} zoom={15} className="w-half h-96">
+
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
