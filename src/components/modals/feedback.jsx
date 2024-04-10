@@ -18,8 +18,27 @@ function FeedbackForm() {
     const handleSubmit = (e) => {
       e.preventDefault();
       // Add code to handle form submission (e.g., send feedback data to server)
-      console.log(formData);
+      try {
+        const response =  fetch('', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          // Handle success, maybe show a success message
+          console.log('Form data submitted successfully!');
+        } else {
+          // Handle error, maybe show an error message
+          console.error('Failed to submit form data');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     };
+    
   
     return (
       <div className=" w-half  mt-8 px-6 py-6  bg-white shadow-md rounded-md">
