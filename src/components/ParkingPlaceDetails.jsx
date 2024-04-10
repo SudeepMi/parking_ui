@@ -31,7 +31,7 @@ const ParkingPlaceDetails = ({ spot }) => {
         </div>
       )}
 
-      <div className="image-map grid sm:grid-cols-[1fr_1fr] gap-2 ">
+      <div className="image-map grid sm:grid-cols-[1fr_1fr] gap-2">
       {spot.imageUrls.length > 0 ? (
         <img className="w-half grid h-96 object-cover object-center mb-1 rounded-md shadow-md"  src={spot.imageUrls[0]} alt={spot.name} />
         
@@ -40,7 +40,7 @@ const ParkingPlaceDetails = ({ spot }) => {
       )}
 
 
-<ParkingMap className="h-96 w-half rounded-md " spot={spot.coordinates} id={spot._id} name={spot.name} />
+    <ParkingMap className="rounded-md overflow-hidden object-contain" spot={spot.coordinates} id={spot._id} name={spot.name} />
 
 
       </div>
@@ -83,13 +83,6 @@ const ParkingPlaceDetails = ({ spot }) => {
         </div>
       </div>
 
-
-
-      <div className="feedback rating grid sm:grid-cols-[1fr_1fr] gap-8 overflow-hidden">
-        <RatingForm/>
-        <FeedbackForm/>
-      </div>
-
       {!accessToken ? (
         <div className="flex items-center gap-4 px-4 py-2 bg-yellow-600 cursor-pointer" onClick={()=> navigate('/signin')  }> 
           <FaHammer className="h-8 w-8" />
@@ -98,6 +91,13 @@ const ParkingPlaceDetails = ({ spot }) => {
       ) : (
         <>{spot.available && <ReservationModal id={spot._id} />}</>
       )}
+
+
+      <div className="feedback rating grid sm:grid-cols-[1fr_1fr] gap-8 overflow-hidden">
+        <RatingForm/>
+        <FeedbackForm/>
+      </div>
+
     </div>
   );
 };
