@@ -2,9 +2,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FaSpinner } from "react-icons/fa";
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 
-import { privateAxios } from "../../api";
+import { publicAxios } from "../../api";
 
 const dialogTransitionConfig = {
   enter: "ease-out duration-300",
@@ -32,19 +32,14 @@ const PaymentModal = ({ id, totalAmount }) => {
   const [amount, setAmount] = useState(""); // Form state for the input field
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
+  const [isLoading, setloading] = React.useState(true)
 
-  const { isLoading, isError, error, mutate } = useMutation({
-    mutationFn: () => {
-      return privateAxios.post(`/payments`, { parkingId: id, amount });
-    },
-    onSuccess: () => {
-      closeModal();
-      queryClient.invalidateQueries("parkings");
-    },
-    onError: (err) => {
-      console.log("error while log in", err);
-    },
-  });
+
+    const mutationFn = async () => {
+       const data = await publicAxios.post(`/payments`, { parkingId: id, amount });
+       console.log({data})
+    }
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,13 +50,13 @@ const PaymentModal = ({ id, totalAmount }) => {
     return <FaSpinner className="text-center animate-spin" />;
   }
 
-  if (isError) {
-    return (
-      <div>
-        <p>{error.message}</p>
-      </div>
-    );
-  }
+  // if (isError) {
+  //   return (
+  //     <div>
+  //       <p>{error.message}</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
@@ -107,13 +102,13 @@ const PaymentModal = ({ id, totalAmount }) => {
                       >
                         Cancel
                       </button>
-                      <button
+                      {totalAmount>0 && <button
                         type="button"
                         className="w-full bg-green-600 py-2 rounded-md hover:bg-green-700 transition-all ease-in-out"
                         onClick={handleSubmit}
                       >
                         Continue
-                      </button>
+                      </button>}
                     </div>
                   </div>
                 </Dialog.Panel>
