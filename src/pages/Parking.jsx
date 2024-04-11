@@ -7,7 +7,7 @@ import PaymentModal from "../components/modals/PaymentModal";
 import Loading from "../components/Loading";
 import UpdatePaymentModal from "../components/modals/UpdatePaymentModal";
 import React from "react";
-import DeleteReservationModal from "../components/modals/DeleteReservationModal";
+// import DeleteReservationModal from "../components/modals/DeleteReservationModal";
 
 
 
@@ -45,7 +45,7 @@ const Parking = () => {
   // }
 
   return (
-    <div className="my-10 w-11/12 mx-auto">
+    <div className="my-10 w-11/12 mx-auto ">
       {parkings.length === 0 ? (
         <p>No parking entries found.</p>
       ) : (
@@ -53,7 +53,7 @@ const Parking = () => {
           {console.log(parkings)}
           {parkings.map((entry) => (
             <div key={entry._id}>
-              <div className="relative bg-white rounded-lg shadow-lg p-6 mb-4 h-72">
+              <div className="relative bg-white rounded-lg shadow-lg p-6 mb-4 h-72 hover:bg-purple-200">
                 <h3 className="font-semibold mb-2">Parking ID: {entry._id}</h3>
 
                 {entry.status === "Payment Pending" ? (
@@ -94,10 +94,10 @@ const Parking = () => {
                   )
                 ) : (
                   <div className="w-full absolute bottom-0 left-0 px-4  my-4 cursor-pointer rounded-full">
-                    {/* <p className="bg-red-600 hover:bg-red-700 text-white text-center px-4 py-2 rounded-md "  onClick={()=>deleteParkings(entry._id)}>
+                    <p className="bg-red-600 hover:bg-red-700 text-white text-center px-4 py-2 rounded-md "  onClick={()=>deleteParkings(entry._id)}>
                       Delete Parking
-                    </p> */}
-                <DeleteReservationModal id={reservation._id} />
+                    </p>
+                {/* <DeleteReservationModal id={reservation._id} /> */}
 
                   </div>
                 )}

@@ -31,7 +31,7 @@ export default function NearestParking() {
         Nearest Parking Spots
       </h2>
      </div>
-      <div className="flex flex-wrap gap-4 mt-2 p-2">
+      <div className="flex flex-wrap gap-8 justify-center  mt-2 p-2">
         {console.log(spots)}
         {spots ? (
           spots.map((s) => s && <ParkingSpotCard key={s._id} spot={s} />)
