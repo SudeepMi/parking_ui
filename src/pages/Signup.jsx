@@ -40,8 +40,11 @@ const Signup = () => {
   };
 
   return (
-    <section className="flex items-center justify-center my-10 w-full bg-zinc-900 text-white">
-      <form className="flex flex-col w-11/12 sm:w-1/3 space-y-4" onSubmit={handleSubmit}>
+    <section className="w-full flex items-center justify-center my-20  text-black rounded-md">
+      <form className="flex flex-col w-11/12 sm:w-1/3 space-y-4 shadow-md p-6" onSubmit={handleSubmit}>
+      <div className="image w-full h-2  flex justify-center items-center p-8 m-4  ">
+      <img className="" src="smartLogo.png" alt="" />
+      </div>
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -80,7 +83,7 @@ const Signup = () => {
 
         {error && <p className="text-red-500 ml-auto">{error.response.data.message}</p>}
 
-        <button disabled={isLoading} type="submit" className="px-2 py-2 bg-purple-500 hover:bg-purple-700">
+        <button disabled={isLoading} type="submit" className="px-2 py-2 bg-purple-500 hover:bg-purple-700 rounded-md">
           Signup
         </button>
 

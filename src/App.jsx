@@ -13,6 +13,7 @@ import CreateVehicleForm from "./components/CreateVehicleForm";
 import { useContext } from "react";
 import { TokensContext } from "./hooks/useTokens";
 import Parking from "./pages/Parking";
+import NearestParking from "./pages/NearestParking";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/nearest-parking" element = {<NearestParking />} />
         <Route
           path="/profile"
           element={
