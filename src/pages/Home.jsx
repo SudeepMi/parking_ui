@@ -7,20 +7,20 @@ import ParkingSpotCard from "../components/ParkingSpotCard";
 
 const Home = () => {
   const { accessToken } = useContext(TokensContext);
-  const [spots, setSpots] = useState([])
+  // const [spots, setSpots] = useState([])
 
-  const getCoords = ()=>{
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(s);
-    }
-  }
-  const s =(d)=>{
-    const {latitude, longitude} = d.coords;
-    privateAxios.get("/parkings/knn?cords="+latitude+","+longitude).then(res=>setSpots(res.data))
-  }
-  useEffect(()=>{
-    getCoords()
-  },[])
+  // const getCoords = ()=>{
+  //   if(navigator.geolocation){
+  //     navigator.geolocation.getCurrentPosition(s,()=>{},{enableHighAccuracy: true});
+  //   }
+  // }
+  // const s =(d)=>{
+  //   const {latitude, longitude} = d.coords;
+  //   privateAxios.get("/parkings/knn?cords="+latitude+","+longitude).then(res=>setSpots(res.data))
+  // }
+  // useEffect(()=>{
+  //   getCoords()
+  // },[])
   return (
     <div>
       {!accessToken && (
@@ -30,11 +30,19 @@ const Home = () => {
         </div>
       )}
       <div className="min-h-[80vh] flex flex-col justify-center items-center ">
-        <div className="text-black text-4xl mb-6 animate-fade-in-up flex ">Welcome to
-        <h2 className="text-green-700 bold ml-2 font-semibold font-serif"> "Smart</h2> <h2 className="ml-2 font-semibold font-serif">Parking"</h2></div>
+        <div className="text-black text-4xl mb-6   animate-fade-in-up sm:flex">Welcome to
+        <h2 className="text-green-700 bold ml-2 font-semibold font-serif "> "Smart</h2> <h2 className="ml-2 font-semibold font-serif">Parking"</h2></div>
         <p className="text-green-900 text-lg mb-4 animate-fade-in-up-delay">
           Reserve your parking spot and have a hassle-free experience.
         </p>
+
+        <Link to="/nearest-parking">
+          <button className="relative inline-flex items-center justify-center p-0.5 mb-5 mt-5 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 transform hover:scale-105 transition-transform">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Nearest Parking
+            </span>
+          </button>
+        </Link>
 
         <Link to="/spots">
           <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 transform hover:scale-105 transition-transform">
@@ -44,12 +52,12 @@ const Home = () => {
           </button>
         </Link>
       </div>
-      <h2>Nearest Parking Spots</h2>
-      <div className="flex gap-1 justify-center">
+      {/* <h2 className="text-green-700  text-3xl bold ml-2 font-semibold font-serif text-center mb-5">Nearest Parking Spots</h2>
+      <div className="flex flex-wrap gap-4 mt-2 p-2">
         {console.log(spots)}
       {spots ? spots.map((s) => s && <ParkingSpotCard key={s._id} spot={s} />) : <p>No spots available.</p>}
         
-      </div>
+      </div> */}
     </div>
   );
 };

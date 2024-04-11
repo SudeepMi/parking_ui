@@ -29,7 +29,7 @@ const Navbar = () => {
                   <li className="hover:text-green-700 transition">Vehicles</li>
                 </Link>
                 <Link to="/parkings">
-                  <li className="hover:text-green-700 transition">Parkings</li>
+                  <li className="hover:text-green-700 transition">Parking Status</li>
                 </Link>
                 <Link to="/profile">
                   <li className="hover:text-green-700 transition">Profile</li>

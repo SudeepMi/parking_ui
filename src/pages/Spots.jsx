@@ -27,6 +27,7 @@ const Spots = () => {
 
   return (
     <div className="grid md:grid-cols-3 w-11/12 mx-auto gap-6 my-10">
+     
       {spots ? spots.map((s) => <ParkingSpotCard key={s._id} spot={s} />) : <p>No spots available.</p>}
     </div>
   );

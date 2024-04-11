@@ -26,6 +26,7 @@ const ParkingSpotCard = ({ spot }) => {
           </div>
 
           <div className="">
+            <p>{spot.distance} KM</p>
             <p className="">{spot.spotType}</p>
             <p className="text-green-700"> Rs.{spot.pricePerHour} / hr</p>
           </div>
