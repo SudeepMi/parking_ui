@@ -41,7 +41,7 @@ const Profile = () => {
       <h2 className="text-2xl font-semibold font-serif text-green-700 py-4 px-4 mb-10 w-1/5 border border-purple-600 shadow-md rounded-md justify-center flex ">{user.name}</h2>
       {user.vehicles.length < 1 && user.reservations.length < 1 && <p className="text-rose-500">Nothing to render!!</p>}
       {user.vehicles.length > 0 && (
-        <div className="grid sm:grid-cols-[1fr_1fr_1fr] gap-10">
+        <div className="grid sm:grid-cols-[1fr_1fr_1fr] gap-10  ">
           <div
             className={`flex items-center gap-4 shadow-md py-4 px-4 rounded-md cursor-pointer transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-100 hover:bg-purple-200 duration-300 ...`}
           >

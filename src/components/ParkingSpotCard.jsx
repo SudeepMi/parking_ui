@@ -6,7 +6,7 @@ import mock from "/mock.jpg";
 const ParkingSpotCard = ({ spot }) => {
   return (
     <Link to={`/spots/${spot._id}`}>
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden pb-4">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden pb-4 hover:bg-purple-200">
         {spot.imageUrls.length > 0 ? (
           <img className="w-full h-48 object-cover object-center mb-1" src={spot.imageUrls[0]} alt={spot.name} />
         ) : (

@@ -13,7 +13,7 @@ function ReservationsList({ reservations }) {
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-3 mt-8  underline underline-offset-4 ">Reservations:</h2>
-      <table className="min-w-full divide-y divide-gray-200 border-separate shadow-md rounded-md ">
+      <table className="min-w-full divide-y divide-gray-200 border-separate shadow-md rounded-md  ">
         <thead className="">
           <tr>
             <th className="px-6 py-3 bg-zinc-900 text-left text-xs leading-4 font-medium text-white uppercase tracking-wider rounded-l-md">
@@ -36,10 +36,10 @@ function ReservationsList({ reservations }) {
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-white divide-y divide-gray-200 ">
           {reservations.map((reservation) => (
-            <tr key={reservation._id}>
-              <td className="px-6 py-4 flex items-center gap-4 whitespace-no-wrap capitalize">
+            <tr key={reservation._id} className="hover:bg-purple-200">
+              <td className="px-6 py-4 flex items-center gap-4 whitespace-no-wrap capitalize text-purple-900">
                 {IconMap[reservation?.vehicle?.vehicleType] ?? IconMap["bike"]}
                 {reservation?.vehicle?.model ?? "Yamaha"}
               </td>
