@@ -74,7 +74,10 @@ const DeleteReservationModal = ({ id }) => {
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child as={Fragment} {...dialogTransitionConfig}>
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-zinc-900 text-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title as="h3" className="text-lg font-medium leading-6 ">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 "
+                  >
                     Are you sure you want to delete reservation?
                   </Dialog.Title>
                   <div className="flex items-center justify-between pt-10 gap-10">

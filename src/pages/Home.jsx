@@ -37,9 +37,9 @@ const Home = () => {
         </p>
 
         <Link to="/nearest-parking">
-          <button className="relative inline-flex items-center justify-center p-0.5 mb-5 mt-5 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-tl from-blue-500 to-purple-600 group-hover:from-blue-500 group-hover:to-purple-600 hover:text-white  dark:text-white dark:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-800 dark:focus:ring-blue-300 transform hover:scale-105 transition-transform">
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-blue-500 rounded-md group-hover:bg-opacity-0">
-              Nearest Parking
+          <button className="relative inline-flex items-center justify-center p-0.5 mb-5 mt-5 mr-2 overflow-hidden text-sm font-medium  rounded-lg group bg-gradient-to-tl from-blue-500 to-purple-600 group-hover:from-blue-500 group-hover:to-purple-600 hover:text-black  dark:text-black dark:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-800 dark:focus:ring-blue-300 transform hover:scale-105 transition-transform">
+            <span className="relative px-5 py-3 transition-all ease-in duration-75 bg-blue-500 rounded-md group-hover:bg-opacity-0">
+              Search Nearest Parking Spots
             </span>
           </button>
         </Link>
@@ -47,7 +47,7 @@ const Home = () => {
         <Link to="/spots">
           <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 transform hover:scale-105 transition-transform">
             <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
-              Reserve Parking
+              Other Parking Spots
             </span>
           </button>
         </Link>

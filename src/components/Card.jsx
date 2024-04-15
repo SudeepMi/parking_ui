@@ -8,7 +8,7 @@ const Card = ({ total, vehicleType }) => {
   };
   return (
     <div
-      className={`flex items-center justify-between border border-purple-600 py-4 px-4 rounded-md cursor-pointer hover:border-purple-400 transition-all ease-out`}
+      className={`flex items-center justify-between   shadow-md py-4 px-4 rounded-md cursor-pointer hover:bg-purple-200 transition-all ease-out`}
     >
       {iconMap[vehicleType]}
       {/* <div className="text-2xl font-semibold">{label}</div> */}

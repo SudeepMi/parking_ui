@@ -74,10 +74,13 @@ function Vehicle({ model, licensePlate, vehicleType, id }) {
     !reservations || !reservations.some((reservation) => reservation?.vehicle?._id === id);
 
   return (
-    <div className="relative p-1 border px-4 overflow-hidden border-purple-400 rounded-md cursor-pointer hover:border-purple-800 transition-all">
+    <div className="relative p-1  px-4 overflow-hidden font-serif  rounded-md cursor-pointer shadow-md hover:bg-purple-200 transition-all">
       {IconMap[vehicleType]}
-      <h2 className="text-xl text-green-600">{model}</h2>
-      <p className="text-base w-14 text-black bg-gray-400  text-center">{licensePlate}</p>
+      <h2 className="text-xl font-semibold text-green-600 my-2 flex"><h2 className="text-black mr-2">Model: </h2>{model}</h2>
+      <span className="flex font-semibold text-xl font-serif">
+      <h2 className="text-black mr-2">Model: </h2>
+      <p className="text-base w-14 text-black bg-gray-200  text-center rounded-md px-2 py-1 mb-2"> {licensePlate}</p>
+      </span>
       {vehicleNotInReservations && <DeleteVehicleModal id={id} />}
     </div>
   );

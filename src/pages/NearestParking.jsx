@@ -26,9 +26,9 @@ export default function NearestParking() {
 
   return (
     <div>
-     <div className="title flex justify-center ">
-     <h2 className="text-green-700  text-3xl bold  font-semibold font-serif text-center  shadow-md mt-5 mb-5 p-5">
-        Nearest Parking Spots
+     <div className="title flex justify-center  ">
+     <h2 className="text-black border border-purple-600 bg-purple-200  text-2xl bold  font-semibold font-serif text-center  shadow-md my-10 p-5 rounded-md">
+        Parking Spots Near You
       </h2>
      </div>
       <div className="flex flex-wrap gap-8 justify-center  mt-2 p-2">

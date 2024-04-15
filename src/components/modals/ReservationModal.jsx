@@ -30,7 +30,7 @@ const overlayTransitionConfig = {
 };
 
 // eslint-disable-next-line react/prop-types
-const ReservationModal = ({ id }) => {
+const ReservationModal = ({ id,spot }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
@@ -38,6 +38,7 @@ const ReservationModal = ({ id }) => {
 
   const [formData, setFormData] = useState({
     parkingSpotId: id,
+    spotid: spot,
     vehicleId: "",
     startTime: null,
     endTime: null,
@@ -115,9 +116,14 @@ const ReservationModal = ({ id }) => {
 
   if (vehicles.length < 1) {
     return (
-      <div className="flex items-center gap-4 px-4 py-2 bg-yellow-600 cursor-pointer" onClick={() => navigate("/vehicles")} >
+      <div
+        className="flex items-center gap-4 px-4 py-2 bg-yellow-600 cursor-pointer"
+        onClick={() => navigate("/vehicles")}
+      >
         <FaHammer className="h-8 w-8" />
-        <p className="text-xl text-white rounded-sm">Please register a vehicle first</p>
+        <p className="text-xl text-white rounded-sm">
+          Please register a vehicle first
+        </p>
       </div>
     );
   }
@@ -128,7 +134,8 @@ const ReservationModal = ({ id }) => {
         type="button"
         onClick={openModal}
         disabled={isLoading || vehicles.length < 1}
-        className="w-full bg-green-600 py-2 hover:bg-green-700 transition-all ease-in-out rounded-md disabled:bg-gray-400"
+        className="w-full bg-green-600 py-2 hover:bg-green-700 transition-all ease-in-out 
+        rounded-md disabled:bg-gray-400"
       >
         Reserve Parking
       </button>
@@ -142,14 +149,20 @@ const ReservationModal = ({ id }) => {
           <div className="fixed inset-0 overflow-y-auto backdrop-blur-sm">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child as={Fragment} {...dialogTransitionConfig}>
-                <Dialog.Panel className="w-full  max-w-md transform overflow-hidden rounded-2xl bg-zinc-900 text-white p-6 text-left align-middle shadow-xl transition-all">
-                  <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
+                <Dialog.Panel className="w-full  max-w-md transform overflow-hidden rounded-2xl
+                 bg-zinc-900 text-white p-6 text-left align-middle shadow-xl transition-all">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-col space-y-2"
+                  >
                     <label className="block">Select Vehicle:</label>
                     <Select
                       required
                       placeholder="Select which vehicle"
                       options={vehicleOptions}
-                      value={vehicleOptions.find((option) => option.value === formData.vehicleId)}
+                      value={vehicleOptions.find(
+                        (option) => option.value === formData.vehicleId
+                      )}
                       onChange={handleVehicleChange}
                       className="border text-black placeholder:text-white"
                     />
@@ -186,7 +199,10 @@ const ReservationModal = ({ id }) => {
                     <button
                       disabled={isLoading}
                       type="submit"
-                      className="px-4 py-2 border border-transparent bg-purple-600  text-sm font-medium  hover:bg-purple-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="px-4 py-2 border border-transparent bg-purple-600  text-sm font-medium 
+                       hover:bg-purple-700 focus:outline-none focus-visible:ring-2
+                        focus-visible:ring-blue-500
+                        focus-visible:ring-offset-2"
                     >
                       Submit Reservation
                     </button>

@@ -15,18 +15,19 @@ function FeedbackForm() {
       }));
     };
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       // Add code to handle form submission (e.g., send feedback data to server)
       try {
-        const response =  fetch('', {
+        const response =  await fetch('http://localhost:4000/spots/feedback', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(formData),
         });
-
+       
+        
         if (response.ok) {
           // Handle success, maybe show a success message
           console.log('Form data submitted successfully!');

@@ -83,7 +83,8 @@ const UpdatePaymentModal = ({ id, totalAmount }) => {
               <Transition.Child as={Fragment} {...dialogTransitionConfig}>
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-zinc-900 text-white p-6 align-middle shadow-xl transition-all">
                   <Dialog.Title as="h3" className="flex items-center text-lg font-medium leading-6 ">
-                    <BsCurrencyDollar className="h-6 w-6" />
+                    {/* <BsCurrencyDollar className="h-6 w-6" /> */}
+                    <h2>Rs.</h2>
                     Are you sure you want to continue payment ?
                   </Dialog.Title>
                   <div className="grid pt-10 gap-4">
@@ -96,7 +97,7 @@ const UpdatePaymentModal = ({ id, totalAmount }) => {
                         placeholder="Enter amount"
                         className="w-full bg-zinc-800 py-2 px-3 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-zinc-400"
                       />
-                      <p className="my-2 text-left">Your due amount is of ${totalAmount}</p>
+                      <p className="my-2 text-left">Your due amount is of Rs.{totalAmount}</p>
                     </form>
 
                     <div className="flex items-center justify-between gap-4">

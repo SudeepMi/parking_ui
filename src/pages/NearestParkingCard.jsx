@@ -3,8 +3,13 @@
 import { Link } from "react-router-dom";
 import mock from "/mock.jpg";
 
-const NearestParkingCard = ({ spot }) => {
+const NearestParkingCard = ({ spots }) => {
+  const availableSpots = spots.filter(spot => spot.available);
+
   return (
+    <>
+
+    {availableSpots.map(spot => (
     <Link to={`/spots/${spot._id}`}>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden pb-4">
         {spot.imageUrls.length > 0 ? (
@@ -41,6 +46,8 @@ const NearestParkingCard = ({ spot }) => {
         </div>
       </div>
     </Link>
+    ))}
+    </>
   );
 };
 

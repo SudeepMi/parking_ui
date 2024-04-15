@@ -31,12 +31,12 @@ const ParkingPlaceDetails = ({ spot }) => {
         </div>
       )}
 
-      <div className="image-map grid sm:grid-cols-[1fr_1fr] gap-2">
+      <div className="image-map grid sm:grid-cols-[1fr_1fr] gap-5">
       {spot.imageUrls.length > 0 ? (
-        <img className="w-half grid h-96 object-cover object-center mb-1 rounded-md shadow-md"  src={spot.imageUrls[0]} alt={spot.name} />
+        <img className="w-full grid h-96 object-cover object-center mb-1 rounded-md shadow-md"  src={spot.imageUrls[0]} alt={spot.name} />
         
       ) : (
-        <img className="w-half h-96 object-cover object-center mb-1" src={mock} alt={spot.name} />
+        <img className="w-full h-96 object-cover object-center mb-1" src={mock} alt={spot.name} />
       )}
 
 
@@ -71,16 +71,32 @@ const ParkingPlaceDetails = ({ spot }) => {
       </div>
 
       <div className="grid sm:grid-cols-2 gap-10 my-10">
-        <div className="flex flex-col space-y-4">
-          <h2 className="text-2xl">Total Capacity</h2>
+        <div className="flex flex-col space-y-4  rounded-lg  ">
+          <h2 className="text-2xl font-semibold">Total Capacity</h2>
           <Card vehicleType="car" total={spot.capacity.car} />
           <Card vehicleType="bike" total={spot.capacity.bike} />
         </div>
         <div className="flex flex-col space-y-4">
-          <h2 className="text-2xl">Total Reservations</h2>
+          <h2 className="text-2xl font-semibold">Total Reservations</h2>
           <Card vehicleType="car" total={spot.reservations.car.length} />
           <Card vehicleType="bike" total={spot.reservations.bike.length} />
         </div>
+      </div>
+      <p>Cars</p>
+      <div className="sport_card flex gap-3 flex-wrap">
+            {[...Array(spot.capacity.car).keys()].map((v,k)=>{
+            return <div className={`car_spot w-20 ${k<spot.reservations.car.length ? "pack bg-red-800" :"bg-slate-500"} h-20 `} key={k}>
+              {`SLOT-${k+1}`}
+              {k>spot.reservations.car.length-1 && <ReservationModal id={spot._id} spot={`SLOT-${k+1}`} /> }
+              </div>})}
+      </div>
+      <p>Bikes</p>
+      <div className="sport_card flex gap-3 flex-wrap">
+            {[...Array(spot.capacity.bike).keys()].map((v,k)=>{
+            return <div className={`car_spot w-20 ${k<spot.reservations.bike.length ? "pack bg-red-800" :"bg-slate-500"} h-20 `} key={k}>
+              {`SLOT-${k+1}`}
+              {k>spot.reservations.bike.length-1 && <ReservationModal id={spot._id} spot={`SLOT-${k+1}`} /> }
+              </div>})}
       </div>
 
       {!accessToken ? (
