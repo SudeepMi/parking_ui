@@ -16,6 +16,7 @@ import ParkingMap from "./Map/parkingMap";
 const ParkingPlaceDetails = ({ spot }) => {
   const { accessToken } = useContext(TokensContext);
   const navigate = useNavigate()
+  console.log(spot)
 
   return (
     <div className="w-full overflow-hidden space-y-6">
@@ -83,19 +84,20 @@ const ParkingPlaceDetails = ({ spot }) => {
         </div>
       </div>
       <p>Cars</p>
-      <div className="sport_card flex gap-3 flex-wrap">
+      <div className="sport_card grid grid-cols-[repeat(auto-fit,minmax(0,150px))] gap-5 px-2 py-2 rounded-md ">
             {[...Array(spot.capacity.car).keys()].map((v,k)=>{
-            return <div className={`car_spot w-20 ${k<spot.reservations.car.length ? "pack bg-red-800" :"bg-slate-500"} h-20 `} key={k}>
-              {`SLOT-${k+1}`}
-              {k>spot.reservations.car.length-1 && <ReservationModal id={spot._id} spot={`SLOT-${k+1}`} /> }
+            return <div className={`car_spot  rounded-md flex flex-col px-2 py-3 w-full ${spot.reservations.car.filter(res=>res.slot_id==`SLOT-${k+1}`).length>0 ? "pack bg-red-800" :"bg-green-600"} `} key={k}>
+              <p className=" text-center py-1 ">{`SLOT-${k+1}`}</p>
+              {spot.reservations.car.filter(res=>res.slot_id==`SLOT-${k+1}`).length<=0 && <ReservationModal id={spot._id} spot={`SLOT-${k+1}`} /> }
               </div>})}
       </div>
+
       <p>Bikes</p>
-      <div className="sport_card flex gap-3 flex-wrap">
+      <div className="sport_card grid grid-cols-[repeat(auto-fit,minmax(0,150px))] gap-5 px-2 py-2 rounded-md">
             {[...Array(spot.capacity.bike).keys()].map((v,k)=>{
-            return <div className={`car_spot w-20 ${k<spot.reservations.bike.length ? "pack bg-red-800" :"bg-slate-500"} h-20 `} key={k}>
-              {`SLOT-${k+1}`}
-              {k>spot.reservations.bike.length-1 && <ReservationModal id={spot._id} spot={`SLOT-${k+1}`} /> }
+            return <div className={` car_spot  rounded-md flex flex-col px-2 py-3 w-full ${spot.reservations.bike.filter(res=>res.slot_id==`SLOT-${k+1}`).length>0 ? "pack bg-red-800" :"bg-green-600"}  `} key={k}>
+              <p className=" text-center py-1 ">{`SLOT-${k+1}`}</p>
+              {spot.reservations.bike.filter(res=>res.slot_id==`SLOT-${k+1}`).length<=0 && <ReservationModal id={spot._id} spot={`SLOT-${k+1}`} /> }
               </div>})}
       </div>
 

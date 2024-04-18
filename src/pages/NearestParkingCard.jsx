@@ -31,7 +31,7 @@ const NearestParkingCard = ({ spots }) => {
           </div>
 
           <div className="">
-            <p>{spot.distance} KM</p>
+            <p>{spot.distance} KM away</p>
             <p className="">{spot.spotType}</p>
             <p className="text-green-700"> Rs.{spot.pricePerHour} / hr</p>
           </div>

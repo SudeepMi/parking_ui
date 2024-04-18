@@ -2,8 +2,31 @@
 
 import { Link } from "react-router-dom";
 import mock from "/mock.jpg";
+import { useEffect, useState } from "react";
+import { privateAxios } from "../api";
+
 
 const ParkingSpotCard = ({ spot }) => {
+  const [spots, setSpots] = useState([]);
+
+  const getCoords = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(s, () => {}, {
+        enableHighAccuracy: true,
+      });
+    }
+  };
+  const s = (d) => {
+    const { latitude, longitude } = d.coords;
+    privateAxios
+      .get("/parkings/knn?cords=" + latitude + "," + longitude)
+      .then((res) => setSpots(res.data));
+  };
+
+  useEffect(() => {
+    getCoords();
+  }, []);
+  
   return (
     <Link to={`/spots/${spot._id}`}>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden pb-4 hover:bg-purple-200">

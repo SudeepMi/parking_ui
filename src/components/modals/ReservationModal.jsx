@@ -38,7 +38,7 @@ const ReservationModal = ({ id,spot }) => {
 
   const [formData, setFormData] = useState({
     parkingSpotId: id,
-    spotid: spot,
+    slot_id: spot,
     vehicleId: "",
     startTime: null,
     endTime: null,
@@ -134,7 +134,7 @@ const ReservationModal = ({ id,spot }) => {
         type="button"
         onClick={openModal}
         disabled={isLoading || vehicles.length < 1}
-        className="w-full bg-green-600 py-2 hover:bg-green-700 transition-all ease-in-out 
+        className="w-full text-white bg-purple-900 py-2 hover:bg-purple-500 transition-all ease-in-out 
         rounded-md disabled:bg-gray-400"
       >
         Reserve Parking
