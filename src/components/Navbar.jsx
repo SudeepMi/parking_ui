@@ -16,15 +16,8 @@ const Navbar = () => {
           <div className="hover:underline text-lg font-semibold">
             <Link to="/"><img  className="w-full h-10 object-cover object-center mb-1"  src="smartLogo.png" alt="logo" /></Link>
           </div>
-          <div className="md:hidden">
-          <button>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
 
-          <ul className=" hidden md:flex items-center gap-4 text-black font-semibold ">
+          <ul className="flex items-center gap-4 text-black font-semibold ">
             <Link to="/">
               <li className="hover:text-green-700 transition">Home</li>
             </Link>
